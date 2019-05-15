@@ -81,8 +81,9 @@ class ReplyController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Model\Reply  $reply
+     * @param  \App\Model\Reply $reply
      * @return \Illuminate\Http\Response
+     * @throws \Exception
      */
     public function destroy(Question $question, Reply $reply)
     {
