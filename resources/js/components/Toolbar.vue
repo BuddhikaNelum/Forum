@@ -4,9 +4,15 @@
             <v-toolbar-title>Forum</v-toolbar-title>
             <v-spacer></v-spacer>
             <div class="hidden-sm-and-down">
-                <v-btn flat>Forum</v-btn>
+
+                <router-link to="/forum">
+                    <v-btn flat>Forum</v-btn>
+                </router-link>
+
                 <v-btn flat>Ask Question</v-btn>
+
                 <v-btn flat>Categoery</v-btn>
+
                 <router-link to="/login">
                     <v-btn flat>Login</v-btn>
                 </router-link>

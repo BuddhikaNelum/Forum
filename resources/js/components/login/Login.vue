@@ -1,9 +1,9 @@
 <template>
     <v-container>
-        <v-form @submit.prevent="login">
+                <v-form @submit.prevent="login">
 
-            <v-text-field
-                    v-model="form.email"
+                    <v-text-field
+                            v-model="form.email"
                     label="E-mail"
                     type="email"
                     required
@@ -18,6 +18,9 @@
 
             <v-btn color="green" type="submit">Login</v-btn>
 
+            <router-link to="/signup">
+                <v-btn color="yellow">Sign Up</v-btn>
+            </router-link>
         </v-form>
     </v-container>
 </template>
@@ -36,6 +39,7 @@
         methods:{
          login(){
              User.login(this.form)
+             this.$router.push({name:'forum'})
          }
         }
     }
