@@ -26,6 +26,8 @@
                     label="Category"
             ></v-autocomplete>
 
+            <markdown-editor v-model="form.body"></markdown-editor>
+
             <v-btn color="green" type="submit">Create</v-btn>
 
         </v-form>
@@ -39,9 +41,11 @@
             return {
                 form :{
                     title:null,
-                    category_id:null
+                    category_id:null,
+                    body:null
                 },
-                categories:{}
+                categories:{},
+                errors:{}
             }
         },
         created(){
@@ -50,7 +54,9 @@
         },
         methods:{
             create(){
-
+                axios.post('/api/question', this.form)
+                    .then(res => console.log(res.data))
+                    .catch(error => this.errors = error.response.data.error)
             }
         }
     }

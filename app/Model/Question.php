@@ -2,11 +2,21 @@
 
 namespace App\Model;
 
+use function foo\func;
 use Illuminate\Database\Eloquent\Model;
 use App\User;
+use Illuminate\Support\Str;
 
 class Question extends Model
 {
+    protected static function boot()
+    {
+        parent::boot();
+
+        static::creating(function ($question){
+            $question->slug = str::slug($question->title);
+        });
+    }
 
     public function getRouteKeyName() {
         return 'slug';
