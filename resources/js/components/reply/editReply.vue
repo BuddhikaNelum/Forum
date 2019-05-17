@@ -28,7 +28,8 @@
                 EventBus.$emit('cancelEditing')
             },
             update(){
-
+                axios.put(`/api/question/${this.reply.question_slug}/reply/${this.reply.id}`, {body:this.reply.reply})
+                    .then(res => this.cancel())
             },
         }
     }

@@ -2650,7 +2650,15 @@ __webpack_require__.r(__webpack_exports__);
     cancel: function cancel() {
       EventBus.$emit('cancelEditing');
     },
-    update: function update() {}
+    update: function update() {
+      var _this = this;
+
+      axios.put("/api/question/".concat(this.reply.question_slug, "/reply/").concat(this.reply.id), {
+        body: this.reply.reply
+      }).then(function (res) {
+        return _this.cancel();
+      });
+    }
   }
 });
 
