@@ -11,6 +11,9 @@
                     v-else
                     :data = question
             ></show-question>
+
+        <replies :replies="question.replies"></replies>
+
     </div>
 
 </template>
@@ -18,9 +21,10 @@
 <script>
     import ShowQuestion from './ShowQuestion'
     import editQuestion from './editQuestion'
+    import replies from '../reply/replies'
     export default {
         name: "read",
-        components:{ShowQuestion, editQuestion},
+        components:{ShowQuestion, editQuestion, replies},
         data(){
           return {
               question: null,
