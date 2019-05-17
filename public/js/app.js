@@ -1936,6 +1936,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "createCategory",
   data: function data() {
@@ -1943,7 +1944,8 @@ __webpack_require__.r(__webpack_exports__);
       form: {
         name: null
       },
-      categories: {}
+      categories: {},
+      editSlug: null
     };
   },
   created: function created() {
@@ -1955,20 +1957,37 @@ __webpack_require__.r(__webpack_exports__);
   },
   methods: {
     submit: function submit() {
+      this.editSlug ? this.update() : this.create();
+    },
+    update: function update() {
       var _this2 = this;
 
-      axios.post('/api/category', this.form).then(function (res) {
+      axios.put("/api/category/".concat(this.editSlug), this.form).then(function (res) {
         _this2.categories.unshift(res.data);
 
         _this2.form.name = null;
       });
     },
-    destroy: function destroy(slug, index) {
+    create: function create() {
       var _this3 = this;
 
-      axios["delete"]("/api/category/".concat(slug)).then(function (res) {
-        return _this3.categories.splice(index, 1);
+      axios.post('/api/category', this.form).then(function (res) {
+        _this3.categories.unshift(res.data);
+
+        _this3.form.name = null;
       });
+    },
+    destroy: function destroy(slug, index) {
+      var _this4 = this;
+
+      axios["delete"]("/api/category/".concat(slug)).then(function (res) {
+        return _this4.categories.splice(index, 1);
+      });
+    },
+    edit: function edit(index) {
+      this.form.name = this.categories[index].name;
+      this.editSlug = this.categories[index].slug;
+      this.categories.splice(index, 1);
     }
   }
 });
@@ -57184,9 +57203,13 @@ var render = function() {
             }
           }),
           _vm._v(" "),
-          _c("v-btn", { attrs: { type: "submit", color: "teal" } }, [
-            _vm._v("Create")
-          ])
+          _vm.editSlug
+            ? _c("v-btn", { attrs: { type: "submit", color: "yellow" } }, [
+                _vm._v("Update")
+              ])
+            : _c("v-btn", { attrs: { type: "submit", color: "teal" } }, [
+                _vm._v("Create")
+              ])
         ],
         1
       ),
@@ -57203,7 +57226,7 @@ var render = function() {
           _vm._v(" "),
           _c(
             "v-list",
-            _vm._l(_vm.categories, function(category) {
+            _vm._l(_vm.categories, function(category, index) {
               return _c(
                 "div",
                 { key: category.id },
@@ -57216,7 +57239,14 @@ var render = function() {
                         [
                           _c(
                             "v-btn",
-                            { attrs: { icon: "", small: "" } },
+                            {
+                              attrs: { icon: "", small: "" },
+                              on: {
+                                click: function($event) {
+                                  return _vm.edit(index)
+                                }
+                              }
+                            },
                             [
                               _c("v-icon", { attrs: { color: "orange" } }, [
                                 _vm._v("edit")
