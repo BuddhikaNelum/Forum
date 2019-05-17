@@ -1,5 +1,5 @@
 <template>
-    <v-card>
+    <v-card class="mt-2">
         <v-card-title primary-title>
             <div>
                 <router-link :to="data.path">
