@@ -1,7 +1,9 @@
 <template>
-    <v-container>
-        <reply v-for="reply in replies" :key="reply.id" :data="reply"></reply>
-    </v-container>
+
+        <div>
+                <reply v-for="reply in content" :key="reply.id" v-if="replies" :data="reply"></reply>
+        </div>
+
 </template>
 
 <script>
@@ -9,7 +11,26 @@
     export default {
         name: "replies",
         props:['replies'],
-        components:{reply}
+
+        data(){
+            return{
+                content:this.replies
+            }
+        },
+
+        components:{reply},
+
+        created() {
+            this.listen()
+        },
+        methods:{
+            listen(){
+                EventBus.$on('newReply', (reply)=>{
+                    this.content.unshift(reply)
+                    window.scroll(0,0)
+                })
+            }
+        }
     }
 </script>
 
