@@ -1771,6 +1771,16 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "AppFooter"
 });
@@ -2668,6 +2678,11 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
 //
 //
 //
@@ -57401,12 +57416,24 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c(
     "v-footer",
-    { staticClass: "pa-3" },
+    { attrs: { dark: "", height: "auto" } },
     [
-      _vm._v("\n    Buddhika Nelum\n    "),
-      _c("v-spacer"),
-      _vm._v(" "),
-      _c("div", [_vm._v("© " + _vm._s(new Date().getFullYear()))])
+      _c(
+        "v-card",
+        { staticClass: "flex", attrs: { flat: "", tile: "" } },
+        [
+          _c(
+            "v-card-actions",
+            { staticClass: "indigo darken-3 justify-center" },
+            [
+              _vm._v("\n            © 2019 — Made with "),
+              _c("span", { staticClass: "heart" }, [_vm._v(" ❤ ")]),
+              _vm._v(" By BuddhikaNelum\n        ")
+            ]
+          )
+        ],
+        1
+      )
     ],
     1
   )
@@ -57477,7 +57504,7 @@ var render = function() {
           _c(
             "router-link",
             { staticClass: "white--text", attrs: { to: "/" } },
-            [_vm._v("SL GROOT.LK")]
+            [_vm._v("Home")]
           )
         ],
         1
@@ -58424,7 +58451,7 @@ var render = function() {
       attrs: {
         dark: "",
         src: "https://cdn.vuetifyjs.com/images/backgrounds/vbanner.jpg",
-        height: "768"
+        height: "530"
       }
     },
     [
@@ -58437,8 +58464,15 @@ var render = function() {
           ]),
           _vm._v(" "),
           _c("h4", { staticClass: "subheading" }, [
-            _vm._v("Feel the power of penguin")
-          ])
+            _vm._v("We are Open Source")
+          ]),
+          _vm._v(" "),
+          _c("h2", { staticClass: "mt-5" }, [
+            _vm._v(
+              '"I am a lazy person, which is why I like open source, for other people to do work for me." '
+            )
+          ]),
+          _c("h3", [_vm._v("Linus Torvarlds")])
         ]
       )
     ],

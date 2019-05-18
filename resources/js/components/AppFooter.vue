@@ -1,9 +1,19 @@
 <template>
-        <v-footer class="pa-3">
-            Buddhika Nelum
-            <v-spacer></v-spacer>
-            <div>&copy; {{ new Date().getFullYear() }}</div>
-        </v-footer>
+    <v-footer
+            dark
+            height="auto"
+    >
+        <v-card
+                class="flex"
+                flat
+                tile
+        >
+
+            <v-card-actions class="indigo darken-3 justify-center">
+                &copy; 2019 — Made with <span class="heart"> ❤ </span> By BuddhikaNelum
+            </v-card-actions>
+        </v-card>
+    </v-footer>
 </template>
 
 <script>

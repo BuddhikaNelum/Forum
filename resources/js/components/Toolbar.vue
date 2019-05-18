@@ -2,7 +2,7 @@
         <v-toolbar color="indigo" dark>
             <!--<v-toolbar-side-icon></v-toolbar-side-icon>-->
             <v-toolbar-title>
-                <router-link class="white--text" to="/">SL GROOT.LK</router-link>
+                <router-link class="white--text" to="/">Home</router-link>
             </v-toolbar-title>
             <v-spacer></v-spacer>
             <div class="hidden-sm-and-down">
