@@ -2,12 +2,12 @@
         <v-toolbar color="indigo" dark>
             <!--<v-toolbar-side-icon></v-toolbar-side-icon>-->
             <v-toolbar-title>
-                <router-link class="white--text" to="/">Home</router-link>
+                <router-link class="white--text text" to="/"><v-icon>home</v-icon></router-link>
             </v-toolbar-title>
             <v-spacer></v-spacer>
             <div class="hidden-sm-and-down">
 
-                <router-link
+                <router-link class="text"
                         v-for="item in items"
                         :key="item.title"
                         :to="item.to"
@@ -42,5 +42,7 @@
 </script>
 
 <style scoped>
-
+    .text{
+        text-decoration: none;
+    }
 </style>

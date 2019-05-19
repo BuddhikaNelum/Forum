@@ -1,19 +1,20 @@
 <template>
-    <v-footer
-            dark
-            height="auto"
-    >
-        <v-card
-                class="flex"
-                flat
-                tile
+        <v-footer
+                dark
+                height="auto"
+                class="layout"
         >
+            <v-card
+                    class="flex"
+                    flat
+                    tile
+            >
 
-            <v-card-actions class="indigo darken-3 justify-center">
-              <p>  &copy; 2019 — Made with ❤ By <a href="https://buddhikanelum.github.io/" target="_blank" style="color: white">BuddhikaNelum</a> </p>
-            </v-card-actions>
-        </v-card>
-    </v-footer>
+                <v-card-actions class="indigo darken-3 justify-center">
+                    <p>  &copy; 2019 — Made with ❤ By <a href="https://buddhikanelum.github.io/" target="_blank" style="color: white">BuddhikaNelum</a> </p>
+                </v-card-actions>
+            </v-card>
+        </v-footer>
 </template>
 
 <script>
@@ -23,5 +24,9 @@
 </script>
 
 <style scoped>
-
+    .layout{
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+    }
 </style>
