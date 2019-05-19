@@ -1,6 +1,6 @@
 <template>
     <v-container fluid grid-list-md>
-        <v-layout row wrap>
+        <v-layout row wrap class="mb-5">
             <v-flex xs8>
                 <question
                 v-for="question in questions"

@@ -57537,7 +57537,7 @@ var render = function() {
         [
           _c(
             "v-card-actions",
-            { staticClass: "indigo darken-3 justify-center" },
+            { staticClass: "indigo lighten-1 justify-center" },
             [
               _c("p", [
                 _vm._v("  © 2019 — Made with ❤ By "),
@@ -57620,7 +57620,7 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c(
     "v-toolbar",
-    { attrs: { color: "indigo", dark: "" } },
+    { attrs: { color: "indigo lighten-1", dark: "" } },
     [
       _c(
         "v-toolbar-title",
@@ -57628,8 +57628,13 @@ var render = function() {
           _c(
             "router-link",
             { staticClass: "white--text text", attrs: { to: "/" } },
-            [_c("v-icon", [_vm._v("home")])],
-            1
+            [
+              _c("img", {
+                attrs: {
+                  src: "https://img.icons8.com/color/48/000000/linux.png"
+                }
+              })
+            ]
           )
         ],
         1
@@ -58048,9 +58053,11 @@ var render = function() {
             }
           }),
           _vm._v(" "),
-          _c("v-btn", { attrs: { color: "green", type: "submit" } }, [
-            _vm._v("Create")
-          ])
+          _c(
+            "v-btn",
+            { staticClass: "mb-5", attrs: { color: "green", type: "submit" } },
+            [_vm._v("Create")]
+          )
         ],
         1
       )
@@ -58187,7 +58194,7 @@ var render = function() {
     [
       _c(
         "v-layout",
-        { attrs: { row: "", wrap: "" } },
+        { staticClass: "mb-5", attrs: { row: "", wrap: "" } },
         [
           _c(
             "v-flex",
@@ -58704,7 +58711,11 @@ var render = function() {
       _vm._v(" "),
       _c(
         "v-btn",
-        { attrs: { color: "green", dark: "" }, on: { click: _vm.submit } },
+        {
+          staticClass: "mb-5",
+          attrs: { color: "green", dark: "" },
+          on: { click: _vm.submit }
+        },
         [_vm._v("\n      Reply\n   ")]
       )
     ],
@@ -58735,6 +58746,7 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c(
     "div",
+    { staticClass: "mb-5" },
     _vm._l(_vm.content, function(reply, index) {
       return _c("reply", {
         key: reply.id,

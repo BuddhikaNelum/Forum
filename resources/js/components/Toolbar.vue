@@ -1,8 +1,8 @@
 <template>
-        <v-toolbar color="indigo" dark>
+        <v-toolbar color="indigo lighten-1" dark>
             <!--<v-toolbar-side-icon></v-toolbar-side-icon>-->
             <v-toolbar-title>
-                <router-link class="white--text text" to="/"><v-icon>home</v-icon></router-link>
+                <router-link class="white--text text" to="/"><img src="https://img.icons8.com/color/48/000000/linux.png"></router-link>
             </v-toolbar-title>
             <v-spacer></v-spacer>
             <div class="hidden-sm-and-down">

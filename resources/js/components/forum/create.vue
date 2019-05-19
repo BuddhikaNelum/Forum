@@ -28,7 +28,7 @@
 
             <markdown-editor v-model="form.body"></markdown-editor>
 
-            <v-btn color="green" type="submit">Create</v-btn>
+            <v-btn color="green" class="mb-5" type="submit">Create</v-btn>
 
         </v-form>
     </v-container>

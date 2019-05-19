@@ -10,7 +10,7 @@
                     tile
             >
 
-                <v-card-actions class="indigo darken-3 justify-center">
+                <v-card-actions class="indigo lighten-1 justify-center">
                     <p>  &copy; 2019 — Made with ❤ By <a href="https://buddhikanelum.github.io/" target="_blank" style="color: white">BuddhikaNelum</a> </p>
                 </v-card-actions>
             </v-card>

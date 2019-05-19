@@ -1,6 +1,6 @@
 <template>
 
-        <div>
+        <div class="mb-5">
                 <reply
                         v-for="(reply,index) in content"
                         :key="reply.id"

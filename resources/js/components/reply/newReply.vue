@@ -1,7 +1,7 @@
 <template>
    <div class="mt-4">
       <markdown-editor v-model="body"></markdown-editor>
-      <v-btn color="green" dark @click="submit">
+      <v-btn color="green" class="mb-5" dark @click="submit">
          Reply
       </v-btn>
    </div>
