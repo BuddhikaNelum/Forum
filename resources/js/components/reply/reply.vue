@@ -7,7 +7,7 @@
 
                 <v-spacer></v-spacer>
 
-                <like></like>
+                <like :content="data"></like>
             </v-card-title>
 
 
@@ -47,7 +47,7 @@
     export default {
         name: "reply",
         props:['data', 'index'],
-        components:{editReply,  like},
+        components:{editReply,like},
         data(){
             return{
                 editing:false

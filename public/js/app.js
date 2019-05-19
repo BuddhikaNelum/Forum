@@ -2470,25 +2470,39 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 /* harmony default export */ __webpack_exports__["default"] = ({
+  props: ['content'],
   name: "like",
   data: function data() {
     return {
-      liked: false,
-      count: 0
+      liked: this.content.liked,
+      count: this.content.like_count
     };
+  },
+  computed: {
+    color: function color() {
+      return this.liked ? 'blue' : 'blue lighten-4';
+    }
   },
   methods: {
     likeIt: function likeIt() {
       if (User.loggedIn()) {
-        this.liked ? this.inr() : this.decr();
+        this.liked ? this.decr() : this.inr();
         this.liked = !this.liked;
       }
     },
     inr: function inr() {
-      this.count++;
+      var _this = this;
+
+      axios.post("/api/like/".concat(this.content.id)).then(function (res) {
+        return _this.count++;
+      });
     },
     decr: function decr() {
-      this.count--;
+      var _this2 = this;
+
+      axios["delete"]("/api/like/".concat(this.content.id)).then(function (res) {
+        return _this2.count--;
+      });
     }
   }
 });
@@ -57426,9 +57440,20 @@ var render = function() {
             "v-card-actions",
             { staticClass: "indigo darken-3 justify-center" },
             [
-              _vm._v("\n            © 2019 — Made with "),
-              _c("span", { staticClass: "heart" }, [_vm._v(" ❤ ")]),
-              _vm._v(" By BuddhikaNelum\n        ")
+              _c("p", [
+                _vm._v("  © 2019 — Made with ❤ By "),
+                _c(
+                  "a",
+                  {
+                    staticStyle: { color: "white" },
+                    attrs: {
+                      href: "https://buddhikanelum.github.io/",
+                      target: "_blank"
+                    }
+                  },
+                  [_vm._v("BuddhikaNelum")]
+                )
+              ])
             ]
           )
         ],
@@ -58212,9 +58237,9 @@ var render = function() {
     [
       _c(
         "v-btn",
-        { attrs: { icon: "" }, on: { clik: _vm.likeIt } },
+        { attrs: { icon: "" }, on: { click: _vm.likeIt } },
         [
-          _c("v-icon", { attrs: { color: "blue" } }, [_vm._v("thumb_up")]),
+          _c("v-icon", { attrs: { color: _vm.color } }, [_vm._v("thumb_up")]),
           _vm._v(" " + _vm._s(_vm.count) + "\n    ")
         ],
         1
@@ -58657,7 +58682,7 @@ var render = function() {
               _vm._v(" "),
               _c("v-spacer"),
               _vm._v(" "),
-              _c("like")
+              _c("like", { attrs: { content: _vm.data } })
             ],
             1
           ),

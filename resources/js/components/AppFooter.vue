@@ -10,7 +10,7 @@
         >
 
             <v-card-actions class="indigo darken-3 justify-center">
-                &copy; 2019 — Made with <span class="heart"> ❤ </span> By BuddhikaNelum
+              <p>  &copy; 2019 — Made with ❤ By <a href="https://buddhikanelum.github.io/" target="_blank" style="color: white">BuddhikaNelum</a> </p>
             </v-card-actions>
         </v-card>
     </v-footer>
