@@ -45,11 +45,9 @@
 </template>
 
 <script>
-    import * as Swal from "sweetalert2";
 
     export default {
         name: "signup",
-
         data(){
             return{
                 form :{
@@ -75,7 +73,7 @@
                     })
                     .catch(error => this.errors = error.response.data.errors);
             }
-        },
+        }
     }
 </script>
 
