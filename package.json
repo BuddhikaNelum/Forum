@@ -24,9 +24,11 @@
         "vue-template-compiler": "^2.6.10"
     },
     "dependencies": {
+        "sweetalert2": "^8.11.1",
         "vue-ribbon": "^1.0.1",
         "vue-router": "^3.0.6",
         "vue-simplemde": "^0.5.1",
+        "vue-sweetalert2": "^2.0.5",
         "vuetify": "^1.5.14"
     }
 }

@@ -16,7 +16,7 @@
                     required
             ></v-text-field>
 
-            <v-btn color="green" type="submit">Login</v-btn>
+            <v-btn color="green" @click="successAlert" type="submit">Login</v-btn>
 
             <router-link to="/signup">
                 <v-btn color="yellow">Sign Up</v-btn>
@@ -26,6 +26,8 @@
 </template>
 
 <script>
+    import * as Swal from "sweetalert2";
+
     export default {
         name: "Login",
         data(){
@@ -38,13 +40,40 @@
         },
         created() {
             if(User.loggedIn()){
+                this.successAlert()
                 this.$router.push({name:'forum'})
             }
         },
         methods:{
          login(){
              User.login(this.form)
-         }
+         },
+            successAlert(){
+                const Toast = Swal.mixin({
+                    toast: true,
+                    position: 'top-end',
+                    showConfirmButton: false,
+                    timer: 3000
+                });
+
+                Toast.fire({
+                    type: 'success',
+                    title: 'Logged in successfully'
+                })
+            },
+            errorAlert(){
+                const Toast = Swal.mixin({
+                    toast: true,
+                    position: 'top-end',
+                    showConfirmButton: false,
+                    timer: 3000
+                });
+
+                Toast.fire({
+                    type: 'error',
+                    title: 'Somthing went wrong'
+                })
+            },
         }
     }
 </script>
