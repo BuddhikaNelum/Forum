@@ -4,8 +4,11 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\SignupRequest;
 use App\User;
+use App\Model\VerifyUsers;
+use App\Mail\EmailVerification;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
 use App\Http\Controllers\Controller;
 
 class AuthController extends Controller
@@ -37,7 +40,15 @@ class AuthController extends Controller
     }
 
     public function signup(SignupRequest $request) {
-        User::create($request->all());
+        $user = User::create($request->all());
+
+        $verifyUsers = VerifyUsers::create([
+            'user_id' => $user->id,
+            'token' => str_random(40)
+            ]);
+
+        Mail::to($user->email)->send(new EmailVerification($verifyUsers->token));
+
         return $this->login($request);
     }
 
